@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Alumno</title>
+    <!-- Bootstrap -->
+    <link href="https://bootswatch.com/4/cyborg/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="box-shadow: 0px 2px 3px 1px #8b8b8b">
+       <a class="navbar-brand" href="/">Software Proyect Garrido Agustin</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item"> </li>
+             <li class="nav-item dropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           	<a class="dropdown-item" href="#">Listar todos los Alumnos que viven en la ciudad de Batán</a>
+			<a class="dropdown-item" href="#">Listar todos los Alumnos que nacieron en el año 2002</a>
+			<a class="dropdown-item" href="#">Listar todos los Alumnos que viven en la ciudad de Batán y tengan grupo sanguíneo RH-</a>
+   	  		<a class="dropdown-item" href="#">Listar todos los Alumnos ordenados por DNI Ascendente</a>
+			<a class="dropdown-item" href="#">Listar todos los Alumnos que viven en la calle Av. J.B. Justo</a>
+          </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0"></form>
+       </div>
+    </nav>
+<div class="container-lg" style="background-color: #a9a9a9;box-shadow: 0px 2px 3px 1px #94d6fc">
+<h6 class="display-8 col-xl-7">&nbsp;</h6>
+            <form action="/actualizar/<%=data.leg_alumno%>" method="post">
+			 <div class="row">
+				<div class="col-6">
+              	  	<div class="input-group mb-3 offset-xl-0 col-xl-11">
+                  		<input type="text" name="leg_alumno" value="<%=data.leg_alumno%>"  class="form-control" placeholder="legajo alumno">
+                	</div>
+                	<div class="input-group mb-3 offset-xl-0 col-xl-11">
+                  		<input type="text" name="apyn_alumno" value="<%=data.apyn_alumno%>"  class="form-control">
+                	</div>
+                	<div class="input-group mb-3 offset-xl-0 col-xl-11">
+                  		<input type="text" name="dom_alumno" value="<%=data.dom_alumno%>"  class="form-control">
+                	</div>
+                	<div class="form-group col-xl-11 offset-xl-0">
+                  		<select class="form-control" id="cod_postal" name="cod_postal">
+                    		<% if (data.cod_postal  == 7600){%>
+                    			<option disabled >Codigo Postal</option>
+                    			<option value="7600" selected>Mar del plata</option>
+                    			<option value="7601">Batan</option>
+                    			<option value="8000">Bahia Blanca</option>
+                      		<%}%>
+                      		<% if (data.cod_postal  == 7601){%>
+                        		<option disabled >Codigo Postal</option>
+                        		<option value="7600">Mar del plata</option>
+                        		<option value="7601" selected>Batan</option>
+                        		<option value="8000">Bahia Blanca</option>
+                      		<%}%>
+                      		<% if (data.cod_postal  == 8000){%>
+                        		<option disabled >Codigo Postal</option>
+                        		<option value="7600" selected>Mar del plata</option>
+                        		<option value="7601">Batan</option>
+                        		<option value="8000"selected>Bahia Blanca</option>
+                      		<%}%>
+                  		</select>                
+                	</div>
+					        <div class="input-group mb-3 offset-xl-0 col-xl-11">
+                  		<%if ((data.fecha_nac_alumno.getMonth()+1)>10){%>
+                    		<input type="date" name="fecha_nac_alumno" value="<%=data.fecha_nac_alumno.getFullYear()+"-"+(data.fecha_nac_alumno.getMonth()+1)+"-"+(data.fecha_nac_alumno.getDate()-1)%>"  class="form-control">
+                    	<%}%>
+                    	<%if ((data.fecha_nac_alumno.getMonth()+1)<10){%>
+                    		<input type="date" name="fecha_nac_alumno" value="<%=data.fecha_nac_alumno.getFullYear()+"-0"+(data.fecha_nac_alumno.getMonth()+1)+"-"+(data.fecha_nac_alumno.getDate()-1)%>"  class="form-control">
+                    	<%}%>                
+                </div>
+                	
+				</div>
+				<div class="col-sm">
+					<div class="input-group mb-3 offset-xl-1 col-xl-11">
+                  		<input type="text" name="email_alumno"  value="<%=data.email_alumno%>" class="form-control">
+               	 	</div>
+                	<div class="input-group mb-3 offset-xl-1 col-xl-11">
+                  		<input type="text" name="grupo_sang_alumno"  value="<%=data.grupo_sang_alumno%>"  class="form-control">
+                	</div>
+                	<div class="input-group mb-3 offset-xl-1 col-xl-11">
+                		<input type="text" name="tel_fijo_alumno"  value="<%=data.tel_fijo_alumno%>"  class="form-control">
+                	</div>
+                	<div class="input-group mb-3 offset-xl-1 col-xl-11">
+                  		<input type="text" name="tel_movil_alumno"  value="<%=data.tel_movil_alumno%>"  class="form-control">
+                	</div>
+                	<div class="input-group mb-3 offset-xl-1 col-xl-11">
+                		<input type="text" name="dni_alumno" value="<%=data.dni_alumno%>"  class="form-control">
+                	</div>
+                	
+				</div>
+			  </div>
+				<h6 class="display-8 col-xl-7">&nbsp;</h6>
+				<div class="form-group row offset-5">
+                 " class="btn-lg btn-secondary" style="box-shadow: 0px 2px 3px 1px #3e7ca0">Actualizar alumno</button>
+                </div>
+          </form>
+		<h6 class="display-8 col-xl-7">&nbsp;</h6>					
+    </body>
+
+    
+    <script>
+      function cod_postal_seleccionado(){
+        var option = parseInt(data.fecha_nac_alumno);
+
+        document.getElementById('cod_postal').value = option;
+      }

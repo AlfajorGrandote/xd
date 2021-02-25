@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Añadir Alumno</title>
+    <!-- Bootstrap -->
+    <link href="https://bootswatch.com/4/cyborg/bootstrap.min.css" rel="stylesheet">
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" style="box-shadow: 0px 2px 3px 1px #94d6fc">
+      <p><a class="navbar-brand" href="/">Software Proyect Garrido Agustin</a>&nbsp;</p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+    </nav>
+<div class="container-lg" style="background-color: #a9a9a9;box-shadow: 0px 2px 3px 1px #94d6fc">
+  <h4 class="display-8 col-xl-7">&nbsp;</h4>
+		<form action="/guardar" method="POST">
+   	  		<div class="row">
+				<div class="col-6">
+					<!--Legajo-->
+   			  		<div class="input-group mb-3 offset-xl-1 col-xl-11">
+ 	 					<input type="number" class="form-control" placeholder="Numero de Legajo" name="leg_alumno">
+ 					</div>
+					<!--Nombre y Apellido-->
+			  		<div class="input-group mb-3 offset-xl-1 col-xl-11">
+ 	 					<input type="text" class="form-control" placeholder="Nombre y apellido" name="apyn_alumno">
+					</div>		
+					<!--Domicilio-->
+			  		<div class="input-group mb-3 offset-xl-1 col-xl-11">
+ 		  				<input type="text" class="form-control" placeholder="Domicilio" name="dom_alumno">
+					</div>
+					<!--Localidad-->
+			  		<div class="form-group offset-xl-1 col-xl-11">
+   		 				<select class="form-control" id="cod_postal" name="cod_postal">
+							<option selected>Localidad</option>
+     	 					<option value="7600">Mar del Plata</option>
+      						<option value="8000">Bahia</option>
+      						<option value="7601">Batán</option>
+						</select>
+  			 		</div>
+					<!--Fecha de Nacimiento-->
+			  		<div class="input-group mb-3 offset-xl-1 col-xl-11">
+          				<input type="date" class="form-control" placeholder="Fecha de nacimiento" name="fecha_nac_alumno">
+  			  		</div>
+				</div>
+				<div class="col-sm">
+					<!--Email-->
+					<div class="input-group mb-3 offset-xl-0 col-xl-11">
+ 	 					<input type="email" class="form-control" placeholder="Email" name="email_alumno">
+					</div>
+					<!--Grupo sanguineo-->
+					<div class="input-group mb-3 offset-xl-0 col-xl-11">
+ 	 					<input type="text" class="form-control" placeholder="Grupo sanguineo" name="grupo_sang_alumno">
+					</div>
+					<!--Telefono fijo-->
+					<div class="input-group mb-3 offset-xl-0 col-xl-11">
+ 	 					<input type="number" class="form-control" placeholder="Telefono fijo" name="tel_fijo_alumno">
+					</div>
+					<!--Telefono movil-->
+					<div class="input-group mb-3 offset-xl-0 col-xl-11">
+ 	 					<input type="number" class="form-control" placeholder="Telefono movil" name="tel_movil_alumno">
+					</div>
+					<!--DNI-->
+					<div class="input-group mb-3 offset-xl-0 col-xl-11">
+ 	 					<input type="number" class="form-control" placeholder="DNI" name="dni_alumno">
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+				  <div class="col-sm"></div>
+				  <div class="form-group row col-5">
+					  <button href="/añadir" type="submit" class="btn btn-secondary btn-lg btn-block" style="box-shadow: 0px 2px 3px 1px #94d6fc">Guardar alumno</button>
+				  </div>
+				  <div class="col-sm"></div>
+				</div>
+		  </div> 
+		</form>		
+	<h4 class="display-8 col-xl-7">&nbsp;</h4>
+</div>
+</body>
+</html>
